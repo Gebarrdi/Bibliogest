@@ -1,23 +1,23 @@
-package com.mycompany.bibliogest.model;
+package com.mycompany.bibliogest.modelo;
 
 import java.util.Date;
 
 public class Prestamo {
     private String codigoPrestamo;
-    private int idUsuarioSolicitante;
-    private int idBibliotecario;
+    private String idUsuarioSolicitante;  // Lector
+    private String idBibliotecario;
     private String codigoLibro;
     private Date fechaPrestamo;
     private Date fechaDevolucionEsperada;
     private Date fechaDevolucionReal;
     private double penalizacion;
     private int diasRetraso;
-    
-    public Prestamo() {
-        
-    }
-    
-    public Prestamo(String codigoPrestamo, int idUsuarioSolicitante, int idBibliotecario, String codigoLibro, Date fechaPrestamo, Date fechaDevolucionEsperada, Date fechaDevolucionReal, double penalizacion, int diasRetraso) {
+
+    public Prestamo() {}
+
+    public Prestamo(String codigoPrestamo, String idUsuarioSolicitante, String idBibliotecario,
+                    String codigoLibro, Date fechaPrestamo, Date fechaDevolucionEsperada,
+                    Date fechaDevolucionReal, double penalizacion, int diasRetraso) {
         this.codigoPrestamo = codigoPrestamo;
         this.idUsuarioSolicitante = idUsuarioSolicitante;
         this.idBibliotecario = idBibliotecario;
@@ -37,19 +37,19 @@ public class Prestamo {
         this.codigoPrestamo = codigoPrestamo;
     }
 
-    public int getIdUsuarioSolicitante() {
+    public String getIdUsuarioSolicitante() {
         return idUsuarioSolicitante;
     }
 
-    public void setIdUsuarioSolicitante(int idUsuarioSolicitante) {
+    public void setIdUsuarioSolicitante(String idUsuarioSolicitante) {
         this.idUsuarioSolicitante = idUsuarioSolicitante;
     }
 
-    public int getIdBibliotecario() {
+    public String getIdBibliotecario() {
         return idBibliotecario;
     }
 
-    public void setIdBibliotecario(int idBibliotecario) {
+    public void setIdBibliotecario(String idBibliotecario) {
         this.idBibliotecario = idBibliotecario;
     }
 
@@ -100,7 +100,7 @@ public class Prestamo {
     public void setDiasRetraso(int diasRetraso) {
         this.diasRetraso = diasRetraso;
     }
-    
+
     public int calcularDiasRetraso() {
         if (fechaDevolucionReal == null || fechaDevolucionEsperada == null) {
             return 0;
@@ -112,6 +112,18 @@ public class Prestamo {
 
     public double calcularPenalizacion() {
         diasRetraso = calcularDiasRetraso();
-        return diasRetraso * 1.5; // Por ejemplo: 1.5 soles por día de retraso
+        return diasRetraso * 0.5;
+    }
+
+    public String getIdUsuarioLector() {
+        return idUsuarioSolicitante;
+    }
+    
+    public void setIdUsuarioLector(String idUsuarioLector) {
+    this.idUsuarioSolicitante = idUsuarioLector;
+    }
+
+    public String getIdUsuarioBibliotecario() {
+        return idBibliotecario;
     }
 }

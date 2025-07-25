@@ -1,20 +1,18 @@
-package com.mycompany.bibliogest.model;
+package com.mycompany.bibliogest.modelo;
 
 public class Usuario {
-    private int idUsuario;
+    private String idUsuario;
     private String nombres;
     private String apellidos;
     private String correo;
     private String contrasena;
-    private String rol; //puede ser lector o bibliotecario
+    private String rol;
     
-    //constructor vacio para DAO
     public Usuario(){
         
     }
     
-    //constructor con todos los atributos
-    public Usuario(int idUsuario, String nombres, String apellidos, String correo, String contrasena, String rol){
+    public Usuario(String idUsuario, String nombres, String apellidos, String correo, String contrasena, String rol){
         this.idUsuario = idUsuario;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -23,11 +21,11 @@ public class Usuario {
         this.rol = rol;
     }
 
-    public int getIdUsuario() {
+    public String getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(String idUsuario) {
         this.idUsuario = idUsuario;
     }
 
@@ -70,6 +68,5 @@ public class Usuario {
     public void setRol(String rol) {
         this.rol = rol;
     }
-
 }
 

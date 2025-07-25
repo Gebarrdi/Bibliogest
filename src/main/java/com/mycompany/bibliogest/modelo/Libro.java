@@ -1,4 +1,4 @@
-package com.mycompany.bibliogest.model;
+package com.mycompany.bibliogest.modelo;
 
 public class Libro {
     private String codigoLibro;
@@ -6,6 +6,7 @@ public class Libro {
     private String autor;
     private String categoria;
     private String editorial;
+    private String isbn;
     private int anioPublicacion;
     private int cantidadTotal;
     private int cantidadDisponible;
@@ -14,12 +15,13 @@ public class Libro {
         
     }
     
-    public Libro(String codigoLibro, String titulo, String autor, String categoria, String editorial, int anioPublicacion, int cantidadTotal, int cantidadDisponible) {
+    public Libro(String codigoLibro, String titulo, String autor, String categoria, String editorial, String isbn, int anioPublicacion, int cantidadTotal, int cantidadDisponible) {
         this.codigoLibro = codigoLibro;
         this.titulo = titulo;
         this.autor = autor;
         this.categoria = categoria;
         this.editorial = editorial;
+        this.isbn = isbn;
         this.anioPublicacion = anioPublicacion;
         this.cantidadTotal = cantidadTotal;
         this.cantidadDisponible = cantidadDisponible;
@@ -65,6 +67,14 @@ public class Libro {
         this.editorial = editorial;
     }
 
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
     public int getAnioPublicacion() {
         return anioPublicacion;
     }
@@ -88,7 +98,7 @@ public class Libro {
     public void setCantidadDisponible(int cantidadDisponible) {
         this.cantidadDisponible = cantidadDisponible;
     }
-    
+ 
     public boolean hayDisponibilidad() {
         return cantidadDisponible > 0;
     }
